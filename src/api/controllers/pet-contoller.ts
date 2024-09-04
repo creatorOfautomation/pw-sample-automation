@@ -18,7 +18,7 @@ export default class PetsController {
     }
 
     async deletePet(id: string) {
-        return await this.client.delete(id as string);
+        return await this.client.delete(id);
     }
 
     async findByTags(tag: string[]) {

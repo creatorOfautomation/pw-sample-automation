@@ -3,7 +3,6 @@ import {ControllerOptions} from "./pw-base-controller";
 import {CONFIG} from "../../../utils/env";
 import PwStoreController from "./pw-store-controller";
 import PwUserController from "./pw-user-controller";
-import {ne} from "@faker-js/faker";
 
 export default class PWApiClient {
     public readonly pet: PWPetsController;
