@@ -26,6 +26,11 @@ jobs:
       env:
         HOME: /root
         BOOK_STORE_ACCOUNT_PASSWORD: ${{secrets.BOOK_STORE_ACCOUNT_PASSWORD}}
+    - name: SonarQube Scan
+      uses: sonarsource/sonarcloud-github-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
     - uses: actions/upload-artifact@v4
       if: always()
       with:
