@@ -19,7 +19,7 @@ export class PwRequest {
         method: Method,
         headers: Record<string, string>,
         body: any,
-        params: { [key: string]: string | number | boolean },
+        params: { [key: string]: string | number | boolean } | URLSearchParams,
 
     }> = {}
 
@@ -47,7 +47,7 @@ export class PwRequest {
         return this;
     }
 
-    searchParams(searchParams: { [key: string]: string | number | boolean }): this {
+    searchParams(searchParams: { [key: string]: string | number | boolean } | URLSearchParams): this {
         this.options.params = searchParams;
         return this;
     }
@@ -84,7 +84,12 @@ export class PwRequest {
 
     private logRequest() {
         const url = `Send ${this.options.method} to ${this.options.prefixUrl}${this.options.url}`;
-        const searchParams = this.options.params ? `?${JSON.stringify(this.options.params)}` : '';
+        let searchParams = '';
+        if (this.options.params instanceof URLSearchParams) {
+            searchParams = `?${this.options.params}`;
+        } else {
+            searchParams = `?${JSON.stringify(this.options.params)}`
+        }
         const body = this.options.body ? `\nBody:\n${JSON.stringify(this.options.body, null, 2)}` : ''
         logger.info(`${url}${searchParams}${body}`)
     }

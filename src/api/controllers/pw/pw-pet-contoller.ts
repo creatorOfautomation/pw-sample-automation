@@ -37,10 +37,12 @@ export default class PWPetsController extends PWBaseController {
     }
 
     async findByTags(tags: string) {
+        const searchParams = new URLSearchParams();
+        searchParams.set('tags', tags);
         return (await this.request()
             .url('pet/findByTags')
             .method('GET')
-            .searchParams({tags})
+            .searchParams(searchParams)
             .send<operations['findPetsByTags']['responses']['200']['schema']>())
             .body
     }
