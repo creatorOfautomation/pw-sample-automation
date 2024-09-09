@@ -1,7 +1,7 @@
 {
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",
-    "@playwright/test": "^1.44.1",
+    "@playwright/test": "^1.47",
     "@types/faker": "^6.6.9",
     "@types/node": "^20.12.12",
     "typescript": "^5.4.5"
