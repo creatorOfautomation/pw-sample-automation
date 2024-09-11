@@ -14,5 +14,7 @@ test.describe('PW - STORE API test cases', () => {
         };
 
         await client.store.placeOrder(body);
+        const admin = await PWApiClient.loginAs({username: 'admin', password: 'admin'});
+        await admin.store.placeOrder(body);
     })
 })

@@ -28,4 +28,10 @@ export default class PWApiClient {
     static unauthorized() {
         return new PWApiClient();
     }
+
+    static async loginAs(credentials: { username: string, password: string }) {
+        return new PWApiClient({
+            token: await new PWApiClient().user.login(credentials)
+        })
+    }
 }

@@ -87,7 +87,7 @@ export class PwRequest {
         let searchParams = '';
         if (this.options.params instanceof URLSearchParams) {
             searchParams = `?${this.options.params}`;
-        } else {
+        } else if (this.options.params) {
             searchParams = `?${JSON.stringify(this.options.params)}`
         }
         const body = this.options.body ? `\nBody:\n${JSON.stringify(this.options.body, null, 2)}` : ''
