@@ -11,4 +11,11 @@ export default class PwStoreController extends PWBaseController {
             .body
     }
 
+    async getOrderById(id: string | number) {
+        return (await this.request()
+            .method('GET')
+            .url(`store/order/${id}`)
+            .send<operations['getOrderById']['responses']['200']['schema']>())
+            .body
+    }
 }

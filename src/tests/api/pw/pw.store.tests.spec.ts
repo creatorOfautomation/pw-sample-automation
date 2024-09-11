@@ -13,8 +13,8 @@ test.describe('PW - STORE API test cases', () => {
             status: 'placed'
         };
 
-        await client.store.placeOrder(body);
+        const id = (await client.store.placeOrder(body)).id;
         const admin = await PWApiClient.loginAs({username: 'admin', password: 'admin'});
-        await admin.store.placeOrder(body);
+        (await admin.store.getOrderById(id as number));
     })
 })
