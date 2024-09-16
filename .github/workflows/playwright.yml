@@ -26,6 +26,7 @@ jobs:
       env:
         HOME: /root
         BOOK_STORE_ACCOUNT_PASSWORD: ${{secrets.BOOK_STORE_ACCOUNT_PASSWORD}}
+        PETSTORE_ADMIN_PASSWORD: ${{secrets.PETSTORE_ADMIN_PASSWORD}}
     - name: SonarQube Scan
       uses: sonarsource/sonarcloud-github-action@master
       env:
