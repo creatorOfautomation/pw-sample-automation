@@ -12,6 +12,11 @@ export const CONFIG = cleanEnv(process.env, {
         }),
         BOOK_STORE_ACCOUNT_PASSWORD: str({
             desc: 'This is encoded password for Book Store user account'
-        })
+        }),
+
+        PETSTORE_ADMIN_PASSWORD: str({
+            desc: 'This is encoded password for Petstore user account(admin) for API tests'
+        }),
+
     }
 )
