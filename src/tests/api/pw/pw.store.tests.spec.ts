@@ -15,8 +15,6 @@ test.describe('PW - STORE API test cases', () => {
         };
 
         const id = (await client.store.placeOrder(body)).id;
-        const password = atob(CONFIG.PETSTORE_ADMIN_PASSWORD);
-        console.log(`password ${password}`)
         const admin = await PWApiClient.loginAs({username: 'admin', password: atob(CONFIG.PETSTORE_ADMIN_PASSWORD)});
         (await admin.store.getOrderById(id as number));
     })
